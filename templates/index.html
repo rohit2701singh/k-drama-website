@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+        {% include "header.html" %}
+        <!-- Page Header-->
+        <header class="masthead " style="background-image: url('static/assets/img/home-bg.png')">
+            <div class="container position-relative px-4 px-lg-5" >
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-10">
+                        <div class="site-heading ">
+                            <h1>Welcome To Drama World</h1>
+                            <span class="subheading">collection of all-time hit dramas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        {% for blog in all_blog: %}
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-10">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                      <a href="{{url_for('detail_blog', blog_id=blog['id'])}}">
+                          <h3 class="mb-2">{{blog["id"]}}. {{blog["title"]}}</h3>
+                      </a>
+                      <div class="mb-0 text-body-secondary">{{blog["subtitle"]}}</div>
+                      <p class="card-text mb-auto">rating: {{blog["rating"]}} ✨<br>release date: {{blog["date"]}}</p>
+
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="static/assets/img/pic1.jpg" width="300" height="200">
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- Pager-->
+            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{{url_for('home')}}">GO TOP ↑</a></div>
+        <!-- Footer-->
+        {% include "footer.html" %}
+
+    </body>
+</html>

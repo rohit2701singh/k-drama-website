@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+        {% include "header.html" %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('static/assets/img/pic3.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-12">
+                        <div class="post-heading  text-center">
+                            <h1>{{blog_data["title"]}}</h1>
+                            <h2 class="subheading">{{blog_data["subtitle"]}}</h2>
+                            <span class="meta">
+                                <p>Posted on {{blog_data["date"]}} with {{blog_data["rating"]}} ✨</p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-3">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center text-justify">
+                    <div class="col-md-10 col-lg-8 col-xl-10">
+                        <h1 class="text-center col-12"><u>{{blog_data["id"]}}</u></h1>
+                        <p>{{blog_data["body"]}}</p>
+                        <p>
+                            Placeholder text by
+                            <a href="{{url_for('static_page', page='about')}}">Rohit</a>
+                            &middot; Images by
+                            <a href="https://unsplash.com/">Unsplash</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <div class="d-flex justify-content-end mb-3 col-10"><a class="btn btn-secondary " href="{{url_for('home')}}">← Back To Home</a></div>
+        {% include "footer.html" %}
+
+    </body>
+</html>
